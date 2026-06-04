@@ -169,7 +169,7 @@ app.get('/', (req, res) => {
 
 // Cron Job: Every minute
 if (process.env.NODE_ENV !== 'test') {
-  cron.schedule('* * * * *', async () => {
+  cron.schedule('*/2 * * * *', async () => {
     console.log('🕐 Cron job starting...', new Date().toISOString());
     await fetchAndProcess();
   });
